@@ -9,7 +9,7 @@ BEGIN
 END $$;
 
 CREATE TABLE departments (
-    dept_no INT PRIMARY KEY,
+    dept_no VARCHAR(10) PRIMARY KEY,
     dept_name VARCHAR(50) NOT NULL
 );
 
@@ -30,15 +30,15 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE dept_emp (
-    dept_no INT NOT NULL,
     emp_no INT NOT NULL,
+    dept_no VARCHAR(10) NOT NULL,
 	Primary Key (dept_no, emp_no),
 	Foreign Key (dept_no) References departments(dept_no),
 	Foreign Key (emp_no) References employees(emp_no)
 );
 
 CREATE TABLE dept_manager (
-    dept_no INT NOT NULL,
+    dept_no VARCHAR(10) NOT NULL,
     emp_no INT NOT NULL,
 	Primary Key (dept_no, emp_no),
 	Foreign Key (dept_no) References departments(dept_no),
